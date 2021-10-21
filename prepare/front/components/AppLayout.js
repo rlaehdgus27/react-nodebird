@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 import { Col, Input, Menu, Row } from "antd";
 
+import UserProfile from "../components/UserProfile";
+import LoginForm from "../components/LoginForm";
+
 const NodeBird = ({ children }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <div>
       <Menu mode="horizontal">
@@ -32,7 +37,7 @@ const NodeBird = ({ children }) => {
 
       <Row gutter={8}>
         <Col xs={24} md={6}>
-          왼쪽 메뉴
+          {isLoggedIn ? <UserProfile /> : <LoginForm />}
         </Col>
 
         <Col xs={24} md={12}>
