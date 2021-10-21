@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 import { Col, Input, Menu, Row } from "antd";
+import styled from "styled-components";
 
 import UserProfile from "../components/UserProfile";
 import LoginForm from "../components/LoginForm";
+
+const SearchInput = styled(Input.Search)`
+  vertical-align: middle;
+`;
 
 const NodeBird = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -25,7 +30,7 @@ const NodeBird = ({ children }) => {
         </Menu.Item>
 
         <Menu.Item>
-          <Input.Search enterButton style={{ verticalAlign: "middle" }} />
+          <SearchInput enterButton />
         </Menu.Item>
 
         <Menu.Item>
