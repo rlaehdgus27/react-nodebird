@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Link from "next/link";
 import { Menu } from "antd";
 
-const AppLayout = ({ children }) => {
+const NodeBird = ({ children }) => {
   return (
     <div>
       <Menu mode="horizontal">
@@ -22,8 +22,8 @@ const AppLayout = ({ children }) => {
   );
 };
 
-AppLayout.propTypes = {
+NodeBird.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default AppLayout;
+export default NodeBird;
