@@ -6,13 +6,14 @@ import styled from "styled-components";
 
 import UserProfile from "../components/UserProfile";
 import LoginForm from "../components/LoginForm";
+import { useSelector } from "react-redux";
 
 const SearchInput = styled(Input.Search)`
   vertical-align: middle;
 `;
 
-const NodeBird = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+const AppLayout = ({ children }) => {
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
   return (
     <div>
@@ -42,11 +43,7 @@ const NodeBird = ({ children }) => {
 
       <Row gutter={8}>
         <Col xs={24} md={6}>
-          {isLoggedIn ? (
-            <UserProfile setIsLoggedIn={setIsLoggedIn} />
-          ) : (
-            <LoginForm setIsLoggedIn={setIsLoggedIn} />
-          )}
+          {isLoggedIn ? <UserProfile /> : <LoginForm />}
         </Col>
 
         <Col xs={24} md={12}>
@@ -67,8 +64,8 @@ const NodeBird = ({ children }) => {
   );
 };
 
-NodeBird.propTypes = {
+AppLayout.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default NodeBird;
+export default AppLayout;
